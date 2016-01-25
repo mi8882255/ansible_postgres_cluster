@@ -54,12 +54,6 @@ postgresql_conf_default_guc:
 # pip install extra args
 pip_install_args: "-q"
 
-# Wal-e S3 configuration
-aws_key: "mykey"
-aws_secret: "mysecret"
-aws_bucket: "s3://mybucket/directory/or/whatever"
-aws_endpoint: "https+path://sos.exo.io:443"
-
 # Cloudstack template to use
 cs_template: "Linux Ubuntu 14.04 LTS 64-bit"
 

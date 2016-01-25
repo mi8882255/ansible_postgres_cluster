@@ -1,6 +1,6 @@
 # ansible-pgsql-demo
 
-An Ansible playbook to deploy postgresql in a master - slave replication configuration on [Exoscale](https://exoscale.ch/) cloud, including continous wal archiving in Exoscale [S3 compatible object store](https://www.exoscale.ch/open-cloud/storage/) using wal-e [wal-e](https://github.com/wal-e/wal-e).
+An Ansible playbook to deploy postgresql in a master - slave replication configuration.
 
 The goal of this playbook is to demonstrate how fast & easy it can be to deploy applications with high availability into the cloud using Ansible.
 
@@ -9,22 +9,9 @@ The goal of this playbook is to demonstrate how fast & easy it can be to deploy 
 ### Prerequisites
 
 ```
-git clone https://github.com/exoscale/ansible-pgsql-demo
-cd ansible-pgsql-demo
 make
 ```
 
-### API Key setup
-
-You need to setup your API keys. The Key & secret can be found within your [portal](https://portal.exoscale.ch) under the account section.
-
-```
-cat $HOME/.cloudstack.ini
-[cloudstack]
-endpoint = https://api.exoscale.ch/compute
-key = Your API Key here
-secret = Your secret key here
-```
 
 ### SSH key setup
 
@@ -38,13 +25,6 @@ A few variables must be setup prior executing this playbook. These variables are
 default/main.yml
 ```
 
-The following variables needs be edited:
-
-* aws_key: "mykey"
-* aws_secret: "mysecret"
-* aws_bucket: "s3://mybucket/directory/or/whatever"
-
-The bucket must be created prior running the playbook. [s3cmd](http://s3tools.org/s3cmd) or any S3 compatible tool may be used for this purpose.
 
 ## Running the playbook 
 

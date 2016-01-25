@@ -1,7 +1,8 @@
 ---
 
 - name: "Install: Setup PGSQL"
-  remote_user: root
+  remote_user: ubuntu
+  sudo: yes
   hosts: pgsql
   gather_facts: yes
   pre_tasks:

@@ -1,6 +1,7 @@
 # file: tasks/configure-master.yml -- postgresql pre-start configuration of master server and startup
 
 - name: "Configure-master: stop old postgresql service"
+  sudo: yes
   service: name="postgresql" state=stopped
   when: postgresql_drop_old_cluster
 

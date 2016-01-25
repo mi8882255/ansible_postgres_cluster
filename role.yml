@@ -9,10 +9,12 @@
 - name: Base setup
   hosts: pgsql
   vars_files:
-    - '../defaults/main.yml'
-  include: 'tasks/install.yml'
+    - 'defaults/main.yml'
+  
+- include: 'tasks/install.yml'
 
 - name: setup master
+  sudo: yes
   hosts: pgmaster
   vars_files:
     - 'defaults/main.yml'
@@ -23,6 +25,7 @@
 
 - name: setup slaves
   hosts: pgslaves
+  sudo: yes
   vars_files:
     - 'defaults/main.yml'
   tasks:

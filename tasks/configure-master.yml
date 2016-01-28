@@ -31,26 +31,26 @@
     line: "{{ item.guc }}"
   with_items: postgresql_conf_default_guc
 
-- name: "Configure-master: enable archive mode"
-  lineinfile:
-    dest: "/etc/postgresql/{{ postgresql_version }}/main/postgresql.conf"
-    state: present
-    regexp: "^#?archive_mode = .*$"
-    line: "archive_mode = 'on'"
-
-- name: "Configure-master: set archive mode timeout"
-  lineinfile:
-    dest: "/etc/postgresql/{{ postgresql_version }}/main/postgresql.conf"
-    state: present
-    regexp: "^#?archive_timeout = .*$"
-    line: "archive_timeout = 60 "
-
-- name: "Configure-master: set archive mode command"
-  lineinfile:
-    dest: "/etc/postgresql/{{ postgresql_version }}/main/postgresql.conf"
-    state: present
-    regexp: "^#?archive_command = .*$"
-    line: "archive_command = 'envdir /etc/wal-e.d/env /usr/local/bin/wal-e wal-push {{ postgresql_main_directory }}%p'"
+#- name: "Configure-master: enable archive mode"
+#  lineinfile:
+#    dest: "/etc/postgresql/{{ postgresql_version }}/main/postgresql.conf"
+#    state: present
+#    regexp: "^#?archive_mode = .*$"
+#    line: "archive_mode = 'on'"
+#
+#- name: "Configure-master: set archive mode timeout"
+#  lineinfile:
+#    dest: "/etc/postgresql/{{ postgresql_version }}/main/postgresql.conf"
+#    state: present
+#    regexp: "^#?archive_timeout = .*$"
+#    line: "archive_timeout = 60 "
+#
+#- name: "Configure-master: set archive mode command"
+#  lineinfile:
+#    dest: "/etc/postgresql/{{ postgresql_version }}/main/postgresql.conf"
+#    state: present
+#    regexp: "^#?archive_command = .*$"
+#    line: "archive_command = 'envdir /etc/wal-e.d/env /usr/local/bin/wal-e wal-push {{ postgresql_main_directory }}%p'"
 
 - name: "Configure-master: create postgresql log directory"
   file:
